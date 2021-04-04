@@ -156,37 +156,62 @@ li::before {
 
 .slider{
     appearance: none;
-    width: 100%; /* Full-width */
-    height: 8px; /* Specified height */
+    width: 100%;
+    height: 8px;
     border-radius: 15px;
-    background: hsl(224, 65%, 95%); /* Grey background */
+    background: hsl(224, 65%, 95%);
     outline: none;
     opacity: 0.7;
     transition: opacity .2s;
 }
 
-.slider:hover {
-    opacity: 1; /* Fully shown on mouse-over */
+.slider:hover,
+.slider:focus {
+    opacity: 1;
 }
 
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
-    appearance: none;
-    width: 24px;
-    height: 13px;
+    width: 28px;
+    height: 28px;
     border: 0;
-    background: url('../images/icon-slider.svg');
+    border-radius: 50px;
+    background-color: hsl(174, 86%, 45%);
+    box-shadow: 0px 0px 15px hsl(174, 86%, 45%);
+    background-image: url(../images/icon-slider.svg);
+    background-size: 60%;
+    background-position: center;
     background-repeat: no-repeat;
     cursor: pointer;
+    position: relative;
+    top: -10px;
 }
   
 .slider::-moz-range-thumb {
-    width: 24px;
-    height: 13px;
+    appearance: none;
+    width: 28px;
+    height: 28px;
     border: 0;
-    background: url('../images/icon-slider.svg');
+    border-radius: 50px;
+    background-color: hsl(174, 86%, 45%);
+    box-shadow: 0px 0px 15px hsl(174, 86%, 45%);
+    background-image: url(../images/icon-slider.svg);
+    background-size: 60%;
+    background-position: center;
     background-repeat: no-repeat;
     cursor: pointer;
+}
+
+.slider::-webkit-slider-runnable-track {
+    height: 100%;
+    border-radius: 50px;
+    background-color: hsl(174, 77%, 80%);
+}
+
+.slider::-moz-range-progress {
+    height: 100%;
+    border-radius: inherit;
+    background-color: hsl(174, 77%, 80%);
 }
 
 #myRange {}
@@ -200,15 +225,15 @@ li::before {
 #toggle::before {
     content: "Monthly Billing";
     position: relative;
-    left: -30px;
-    bottom: 2px;
+    left: -15px;
+    bottom: 3px;
 }
 
 #toggle::after {
     content: "Yearly Billing";
     position: relative;
-    left: 30px;
-    bottom: 2px;
+    left: 15px;
+    bottom: 3px;
 }
 
 .switch {
@@ -269,6 +294,26 @@ input:checked + .toggler:before {
   
 .toggler.round:before {
     border-radius: 50%;
+}
+
+/* ----- Discount ----- */
+
+.discount {
+    display: inline-flex;
+    justify-content: flex-end;
+    position: relative;
+    right: 5%;
+}
+
+.discount::after {
+    content: "25% discount";
+    position: relative;
+    left: 25px;
+    bottom: 1px;
+    background-color: hsl(14, 92%, 95%);
+    color: hsl(15, 100%, 70%);
+    padding: 0 .5rem;
+    border-radius: 50px;
 }
 
 @media only screen and (max-width: 880px) {
