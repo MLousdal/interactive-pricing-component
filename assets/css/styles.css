@@ -1,8 +1,3 @@
-/*  
-    CSSmall by Mads Lousdal 
-    github.com/MLousdal
-*/
-
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@600;800&display=swap');
 
 html {font-size: 100%;} /*16px*/
@@ -12,12 +7,12 @@ body {
   background-image: url(../images/bg-pattern.svg);
   background-repeat: no-repeat;
   background-size: contain;
+  background-position: top left;
   font-family: 'Manrope', sans-serif;
   font-weight: 600;
   line-height: 1.75;
   color: hsl(225, 20%, 60%);
   margin: 0;
-  height: 100vh;
 }
 
 /* ----- Fonts ----- */
@@ -26,7 +21,6 @@ body {
 p {padding-bottom: 1rem;}
 
 h1, h2 {
-  /* padding: 3rem 0 1.38rem; */
   line-height: 1.3;
 }
 
@@ -56,7 +50,6 @@ h2 {font-size: 1.602rem;}
 
 .inline-flex {
     display: inline-flex;
-    justify-content: space-between;
     align-items: center;
     flex-wrap: nowrap;
 }
@@ -75,22 +68,25 @@ h2 {font-size: 1.602rem;}
     filter: drop-shadow(0px 1px 40px rgba(204, 204, 204, 0.7));
 }
 
-.gap {
-    /* margin-bottom: 3px; */
-}
-
 /* ----- Price component ----- */
 
 #price-component {
-    width: 100%;
+    width: 90vw;
     max-width: 600px;
-    background-color: hsl(0, 0%, 100%);
-    border-radius: 10px;
+    
 }
 
 #price-top {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-items: center;
+    border-radius: 10px 10px 0 0;
+}
+
+#price-bottom {
+    border-radius: 0 0 10px 10px;
+    justify-content: space-between;
 }
 
 #views::after {
@@ -109,14 +105,16 @@ header {
     background-image: url(../images/pattern-circles.svg);
     background-repeat: no-repeat;
     background-position: 50%;
-    padding: 4rem;
+    padding: 6rem;
 }
 
 /* ----- Section ----- */
 
 section {
     width: 90%;
-    margin: 2rem;
+    padding: 2rem;
+    margin-bottom: 0.1rem;
+    background-color: hsl(0, 0%, 100%);
 }
 
 /* ----- Button ----- */
@@ -152,6 +150,7 @@ li::before {
 .slidecontainer {
     width: 100%;
     margin: 1rem 0 3rem 0;
+    grid-column: 1 / span 2;
 }
 
 .slider{
@@ -214,22 +213,20 @@ li::before {
     background-color: hsl(174, 77%, 80%);
 }
 
-#myRange {}
-
 /* ----- Toggle ----- */
 
-#toggle {
+.toggle {
     flex-direction: row;
 }
 
-#toggle::before {
+.toggle::before {
     content: "Monthly Billing";
     position: relative;
     left: -15px;
     bottom: 3px;
 }
 
-#toggle::after {
+.toggle::after {
     content: "Yearly Billing";
     position: relative;
     left: 15px;
@@ -303,6 +300,8 @@ input:checked + .toggler:before {
     justify-content: flex-end;
     position: relative;
     right: 5%;
+    grid-column: 1 / span 2;
+    justify-self: flex-end;
 }
 
 .discount::after {
@@ -316,6 +315,24 @@ input:checked + .toggler:before {
     border-radius: 50px;
 }
 
-@media only screen and (max-width: 880px) {
+@media only screen and (max-width: 585px) {
+    html {font-size: 90%;}
+    header {padding: 3rem;}
+    #price-top {grid-template-columns: 1fr;}
+    .price {
+        grid-row: 3;
+    }
+    .discount {
+        justify-self: center;
+        right: -5%;
+    }
+    .discount::after {content: "25%";}
+}
 
+@media only screen and (max-width: 515px) {
+    html {font-size: 75%;}
+    header {background-size: 30%;}
+    #price-bottom {flex-direction: column;}
+    #price-bottom ul {margin-bottom: 2rem;}
+    .discount {right: -3%;}
 }

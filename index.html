@@ -24,26 +24,24 @@
   </header>
   <div id="price-component" class="center dropShadow">
     <section id="price-top">
-      <div class="inline-flex">
         <p id="views" class="bold"></p>
-        <div class="inline-flex">
+        <div class="inline-flex price">
           <p id="price" class="darkBlueTxt x-large bold"></p>
           <p>/month</p>
         </div>
-      </div>
       <div class="slidecontainer center">
         <input type="range" min="1" max="5" value="3" class="slider" id="myRange">
       </div>
       <div class="discount">
-        <div id="toggle" class="center">
+        <div class="center toggle">
           <label class="switch">
-            <input type="checkbox">
+            <input type="checkbox" id="toggle">
             <span class="toggler round"></span>
           </label>
         </div>
       </div>
     </section>
-    <section class="inline-flex">
+    <section class="inline-flex" id="price-bottom">
       <ul>
         <li>Unlimited websites</li>
         <li>100% data ownership</li>
@@ -52,12 +50,6 @@
       <a href="#" class="btn-start darkBlueBg">Start my trial</a>
     </section>
   </div>
-  
-<!-- 
-  Monthly Billing
-  Yearly Billing 25% discount
--->
-
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="https://github.com/MLousdal">MLousdal</a>.
